@@ -1,7 +1,7 @@
 
-
-
-File = open("6_1.py")
+# File = open("6_1.txt")
+import sys
+File = sys.stdin
 parties = {}
 while True:
     line = File.readline()
@@ -9,16 +9,16 @@ while True:
         break
     if line == "PARTIES:\n":
         continue
-    parties.get(line.strip(), 0)
+    parties.setdefault(line.strip(), 0)
 
 while True:
     line = File.readline()
     if line == "":
         break
-    parties[line.strip()] = parties.get(line.strip(), 0) + 1
+    parties[line.strip()] = parties.get(line.strip()) + 1
 
 File.close()
 
 result = sorted(parties.items(), key=lambda x: (-x[1], x[0]))
-for party, votes in result:
-    print(f"{party} {votes}")
+for party in result:
+    print(party[0])
