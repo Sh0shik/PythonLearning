@@ -1,7 +1,7 @@
 
-# File = open("6_1.txt")
-import sys
-File = sys.stdin
+File = open("input.txt")
+# import sys
+# File = sys.stdin
 parties = {}
 while True:
     line = File.readline()

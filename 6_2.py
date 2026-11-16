@@ -57,11 +57,11 @@ with shelve.open('articles') as shelFile:
     print("\nИзначальный")
     pprint.pprint(list(shelFile.items()))
 
-with shelve.open('articles') as shelFile:
-    lstTwoObject = sorted_articles[:2]
-    shelFile['Первые2'] = lstTwoObject
-    print("\nДобавление")
-    pprint.pprint(list(shelFile.items()))
+# with shelve.open('articles') as shelFile:
+#     lstTwoObject = sorted_articles[:2]
+#     shelFile['Первые2'] = lstTwoObject
+#     print("\nДобавление")
+#     pprint.pprint(list(shelFile.items()))
 
 with shelve.open('articles') as shelFile:
 
@@ -72,4 +72,4 @@ with shelve.open('articles') as shelFile:
     print("\nУдаление")
     del shelFile["Статьи"]
     pprint.pprint(list(shelFile.items()))
-    shelFile.clear()
+    # shelFile.clear()
