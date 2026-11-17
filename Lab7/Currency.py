@@ -24,7 +24,7 @@ class Rate:
         r = requests.get('https://www.cbr-xml-daily.ru/daily_json.js')
         return r.json()['Valute']
 
-    def make_format(self, currency):
+    def make_format(self, currency, diff):
         """
         Возвращает информацию о валюте currency в двух вариантах:
         - полная информация о валюте при self.format = 'full':
@@ -49,13 +49,18 @@ class Rate:
 
             if self.format == 'value':
                 return response[currency]['Value']
+            
+            if self.format ==  'shortNote':
+                return str(response[currency]['Name']) + ' ' + str(response[currency]['Value'])
 
         return 'Error'
 
-    def eur(self):
+    def eur(self, diff = False):
         """Возвращает курс евро на сегодня в формате self.format"""
         return self.make_format('EUR')
 
-    def usd(self):
+    def usd(self, diff = False):
         """Возвращает курс доллара на сегодня в формате self.format"""
-        return self.make_format('USD')
+        return self.make_format('USD', diff)
+
+        

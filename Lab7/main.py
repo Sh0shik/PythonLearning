@@ -58,5 +58,5 @@ class Date:
         else:
             print("Uncorrrect day")
 
-curr = Rate('full')
+curr = Rate('shortNote')
 print(curr.usd())
